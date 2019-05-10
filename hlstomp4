@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ffmpeg -i "input.m3u8" -bsf:a aac_adtstoasc -vcodec copy -c copy -crf 50 input.mp4
