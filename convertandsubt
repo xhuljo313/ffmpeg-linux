@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+ffmpeg -i video.avi -vf "subtitles=video.srt" -c:a copy -f mp4 video.mp4
