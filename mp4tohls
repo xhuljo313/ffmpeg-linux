@@ -2,13 +2,6 @@
 
 ffmpeg -i input.mp4 -codec copy -hls_list_size 0 output.m3u8
 
-
-
-
- ffmpeg -i input.mp4 -codec: copy -start_number 0 -hls_time 120 -hls_list_size 0 -f hls input.m3u8
+# OR
  
- 
- 
- 
- 
-  ffmpeg -i input.mp4 -codec copy -start_number 0 -hls_time 120 -hls_list_size 0 -f hls input.m3u8
+ffmpeg -i video.mp4 -codec copy -start_number 0 -hls_time 120 -hls_list_size 0 -f hls video.m3u8
