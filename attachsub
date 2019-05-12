@@ -1,1 +1,0 @@
-ffmpeg -i video.mp4 -vf "subtitles=video.srt" -c:a copy -f mp4 video.0.mp4
