@@ -1,6 +1,6 @@
 input=(http://xxx:25461/FMBSl7obe5/Nts9vQEll9/55391?token=S0ZdUkMKGgMVBFIKU1UFUFoNBAdeXQENUlUAAABXUlwEUFZSAlUMWwAVHxtCRRRWWVk+XgJGDgwGUFtQTkcQS1UWalpUQAIbBAALDwITShFMXQxSRF4FDAZUVFhaVVwLHEZFWlRAAhsEBgUOBRNKEV1MFVIUClVVbAcHFwsGABoKCkBfXE4aVlloV1xcUAhXGg5DBkRIFlBAE0BbQAw1c39EYVZcB1tWWlpGV1hSB0dRWw9ERih4ehFPQAMLERdZRAEXCRJRDgkBFR8bUl4TXUxGGBVcRnV1EU9ABBoRAFZDDVpdElgaTUQVHxtYQjlBXUcVRQMFWVxBQVhDUkdJGl0FTWxTDVZXUlRHUF5fFRECFlEVSkZZVl0KFg4QOhVRVEYPEQJVDQoOFU4=)
 output=(rtmp://178.33.104.93/hls/raw)
-exec ffmpeg -re -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 90 -i $input -c:v libx264 -crf 19 -level 3.1 -preset veryfast -tune film -vf scale=1280:720 -b 4000k -minrate 4000k -maxrate 4000k -bufsize 1835k -f flv $output
+exec ffmpeg -re -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 90 -i $input -c:v libx264 -crf 19 -level 3.1 -preset veryfast -tune film -vf scale=1280:720 -f flv $output
 
 
 
