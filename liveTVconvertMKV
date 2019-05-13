@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+input=(http://xxxxxxxx:25461/FMBSl7obe5/Nts9vQEll9/55391?token=S0ZdUkMKGgMVBFIKU1UFUFoNBAdeXQENUlUAAABXUlwEUFZSAlUMWwAVHxtCRRRWWVk+XgJGDgwGUFtQTkcQS1UWalpUQAIbBAALDwITShFMXQxSRF4FDAZUVFhaVVwLHEZFWlRAAhsEBgUOBRNKEV1MFVIUClVVbAcHFwsGABoKCkBfXE4aVlloV1xcUAhXGg5DBkRIFlBAE0BbQAw1c39EYVZcB1tWWlpGV1hSB0dRWw9ERih4ehFPQAMLERdZRAEXCRJRDgkBFR8bUl4TXUxGGBVcRnV1EU9ABBoRAFZDDVpdElgaTUQVHxtYQjlBXUcVRQMFWVxBQVhDUkdJGl0FTWxTDVZXUlRHUF5fFRECFlEVSkZZVl0KFg4QOhVRVEYPEQJVDQoOFU4=)
+
+
+ffmpeg -re -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 90 -i $input -codec copy output.mkv
+
+# Why output on mkv format? because mkv i a video container it means that you can play that mkv anytime while ffmpeg is still going..
