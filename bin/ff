@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # clean meta.
-ffmpeg -i $input -map_metadata -1 -c:v copy -c:a copy $output
+ffmpeg -i $input -map_metadata -1 -c:v copy -c:a copy $output.mkv
 
 # convert
-ffmpeg -i $input -c:a copy -s 854x480 -f mp4 mb_480p.mp4 -async 1 -vsync 1
-ffmpeg -i $input -c:a copy -s 640x360 -f mp4 mv_360p.mp4 -async 1 -vsync 1
+mkdir -p finished/
+ffmpeg -i $output.mkv -c:a copy -s 854x480 -f mp4 finished/$name_480p.mp4 -hide_banner -async 1 -vsync 1
+ffmpeg -i $output.mkv -c:a copy -s 640x360 -f mp4 finished/$name_360p.mp4 -hide_banner -async 1 -vsync 1
 
 
-ffmpeg -i $input.mkv -c:v libvpx -b:v 1M -acodec libvorbis -s 854x480 -f webm mb_480p.webm -hide_banner
-ffmpeg -i $input.mkv -c:v libvpx -b:v 1M -acodec libvorbis -s 640x360 -f webm mb_360p.webm -hide_banner
+ffmpeg -i $output.mkv -c:v libvpx -b:v 1M -acodec libvorbis -s 854x480 -f webm finished/$name_480p.webm -hide_banner -async 1 -vsync 1
+ffmpeg -i $output.mkv -c:v libvpx -b:v 1M -acodec libvorbis -s 640x360 -f webm finished/$name_360p.webm -hide_banner -async 1 -vsync 1
