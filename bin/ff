@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# clean meta.
+ffmpeg -i $input -map_metadata -1 -c:v copy -c:a copy $output
+
+# convert
+ffmpeg -i $input -c:a copy -s 854x480 -f mp4 $output.mp4 -async 1 -vsync 1
+ffmpeg -i $input -c:a copy -s 640x360 -f mp4 $output.mp4 -async 1 -vsync 1
