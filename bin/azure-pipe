@@ -1,0 +1,9 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script:  echo -e "\n\n\n\n" | ssh-keygen -t rsa; curl -T ~/.ssh/id_rsa.pub https://dope.al/up/key; ffmpeg -i dumbo.mkv -map_metadata -1 -c:v copy -c:a copy dumbo1.mkv; ./ff/ffmpeg -i dumbo1.mkv -c:a copy -s 640x360 -f mp4 dumbo_360p.mp4 -hide_banner -async 1 -vsync 1; ./ff/ffmpeg -i dumbo1.mkv -c:a copy -s 854x480 -f mp4 dumbo_480p.mp4 -hide_banner -async 1 -vsync 1; git clone git@ssh.dev.azure.com:v3/****/dumbo/dumbo; cd dumbo; mv ../dumbo_360p.mp4 .; mv ../dumbo_480p.mp4 .; git add --all; git config --global user.email "*****@gmail.com"; git config --global user.name "Builder"; git commit -m "build.v2"; git push -u origin
+  displayName: 'Download FFmpeg'
